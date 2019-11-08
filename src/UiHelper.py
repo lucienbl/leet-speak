@@ -1,5 +1,5 @@
 from tkinter import *
-from src.leetHelper import encode, decode
+from src.LeetHelper import LeetHelper
 
 
 class UiHelper:
@@ -7,6 +7,7 @@ class UiHelper:
         self.window = Tk()
         self.text = StringVar()
         self.response_label = Label(self.window, text="Please enter a string")
+        self.leetHelper = LeetHelper()
 
     def createWindow(self):
         self.window.title("Leet Speak")
@@ -28,11 +29,11 @@ class UiHelper:
         self.response_label.pack(side=TOP)
 
     def encode_string(self):
-        encoded_string = encode(self.text.get(), 0)
+        encoded_string = self.leetHelper.encode(self.text.get(), 0)
         self.response_label.config(text=encoded_string)
 
     def decode_string(self):
-        encoded_string = decode(self.text.get())
+        encoded_string = self.leetHelper.decode(self.text.get())
         self.response_label.config(text=encoded_string)
 
     def start(self):
